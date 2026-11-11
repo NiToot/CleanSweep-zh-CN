@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Properties;
 using System;
 using System.Linq;
@@ -117,16 +118,16 @@ namespace CleanSweep
                 try
                 {
                     var (fileType, spaceInMB) = cleaner.GetReclaimableSpace();
-                    report.AppendLine($"{fileType}: {spaceInMB} MB");
+                    report.AppendLine($"{fileType}：{spaceInMB} MB");
                     totalSpace += spaceInMB;
                 }
                 catch (Exception ex)
                 {
-                    report.AppendLine($"Error calculating space: {ex.Message}");
+                    report.AppendLine($"计算空间时出错：{ex.Message}");
                 }
             }
 
-            return outputWindow.Text += report.ToString() + $"\nTotal Reclaimable Space: {totalSpace}MB\n";
+            return outputWindow.Text += report.ToString() + $"\n预计可释放空间：{totalSpace} MB\n";
         }
 
         private async void Button1_Click_1(object sender, EventArgs e)
@@ -183,7 +184,7 @@ namespace CleanSweep
             }
 
             double spaceReclaimed = totalSpaceBefore - totalSpaceAfter;
-            outputWindow.Text += $"\nTotal Space Reclaimed: {spaceReclaimed}MB\n";
+            outputWindow.Text += $"\n已释放空间：{spaceReclaimed} MB\n";
 
             LockCleaning(false);
         }
@@ -244,7 +245,7 @@ namespace CleanSweep
 
         private void DonateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("CleanSweep is provided completely free and it always will be!\n\nDonations aren't required but are always welcomed.\n\nWould you like to visit the donation page now?", "CleanSweep is free but beer is not!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            var result = MessageBox.Show("CleanSweep 免费提供。如果你愿意，可以自愿支持原作者。\n\n是否打开捐赠页面？", "支持原作者", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (result == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start("https://paypal.me/thomasloupe");
@@ -254,15 +255,15 @@ namespace CleanSweep
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var version = CleanSweepVersion.Version;
-            var message = $"CleanSweep {version}\nCreated by: Thomas Loupe";
-            var title = "About";
+            var message = $"CleanSweep {version} 简体中文版\n原作者：Thomas Loupe";
+            var title = "关于 CleanSweep";
 
             CustomMessageBox.Show(
                 message,
                 title,
-                ("Created by Thomas Loupe", "https://thomasloupe.com"),
-                ("CleanSweep Github", "https://github.com/thomasloupe/CleanSweep"),
-                ("Thomas's Github", "https://github.com/thomasloupe"),
+                ("原作者网站", "https://thomasloupe.com"),
+                ("CleanSweep 上游仓库", "https://github.com/thomasloupe/CleanSweep"),
+                ("Thomas Loupe 的 GitHub", "https://github.com/thomasloupe"),
                 ("Twitter", "https://twitter.com/acid_rain")
             );
         }

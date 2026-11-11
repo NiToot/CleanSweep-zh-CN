@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Interfaces;
 using System;
 using System.IO;
@@ -21,7 +22,7 @@ public class WindowsUpdateLogsCleaner : ICleaner
     {
         _preCleanupSize = CalculateDirectorySize(_windowsUpdateLogDir);
         int spaceInMB = ConvertBytesToMegabytes(_preCleanupSize);
-        return ("Windows Update Logs", spaceInMB);
+        return ("Windows 更新日志", spaceInMB);
     }
 
     public async Task Reclaim()
@@ -41,17 +42,17 @@ public class WindowsUpdateLogsCleaner : ICleaner
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine($"Error deleting file {file.FullName}: {ex.Message}");
+                            Console.WriteLine($"无法删除文件 {file.FullName}：{ex.Message}");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Windows Update Logs Cleaner: Error deleting files in {di.FullName}: {ex.Message}");
+                    Console.WriteLine($"无法删除 {di.FullName} 中的文件：{ex.Message}");
                 }
             });
         }
-        RichTextBoxExtensions.AppendText(_outputWindow, "Windows Update Logs cleaned!\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已执行Windows 更新日志清理。\n");
     }
 
     public long ReportReclaimedSpace()

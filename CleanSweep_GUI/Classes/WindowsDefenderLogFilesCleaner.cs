@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Interfaces;
 using System;
 using System.IO;
@@ -34,7 +35,7 @@ public class WindowsDefenderLogFilesCleaner : ICleaner
     {
         _preCleanupSize = CalculateTotalLogFilesSize();
         int spaceInMB = ConvertBytesToMegabytes(_preCleanupSize);
-        return ("Windows Defender Log Files", spaceInMB);
+        return ("Defender 日志", spaceInMB);
     }
 
     public async Task Reclaim()
@@ -53,17 +54,17 @@ public class WindowsDefenderLogFilesCleaner : ICleaner
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine($"Error deleting directory {directory}: {ex.Message}");
+                            Console.WriteLine($"无法删除目录 {directory}：{ex.Message}");
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Windows Defender Log Files Cleaner: Error during Windows Defender log files cleanup: {ex.Message}");
+                Console.WriteLine($"清理 Defender 日志时出错：{ex.Message}");
             }
         });
-        RichTextBoxExtensions.AppendText(_outputWindow, "Windows Defender cleaned!\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已执行 Defender 日志清理。\n");
     }
 
     public long ReportReclaimedSpace()

@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Interfaces;
 using System;
 using System.IO;
@@ -22,7 +23,7 @@ public class WindowsInstallerCacheCleaner : ICleaner
         string patchCacheDir = Path.Combine(_windowsDirectory, "Installer", "$PatchCache$", "Managed");
         _preCleanupSize = CalculateDirectorySize(patchCacheDir);
         int spaceInMB = ConvertBytesToMegabytes(_preCleanupSize);
-        return ("Windows Installer Cache", spaceInMB);
+        return ("Windows Installer 缓存", spaceInMB);
     }
 
     public async Task Reclaim()
@@ -40,10 +41,10 @@ public class WindowsInstallerCacheCleaner : ICleaner
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Windows Installer Cache Cleaner: Error during Windows Installer Cache cleanup: {ex.Message}");
+                Console.WriteLine($"清理 Windows Installer 缓存时出错：{ex.Message}");
             }
         });
-        RichTextBoxExtensions.AppendText(_outputWindow, "Windows Installer Cache cleaned!\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已执行Windows Installer 缓存清理。\n");
     }
 
     public long ReportReclaimedSpace()

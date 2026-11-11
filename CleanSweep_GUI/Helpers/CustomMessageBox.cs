@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -55,7 +56,7 @@ namespace CleanSweep.Classes
             // Create an OK button to close the message box
             Button okButton = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 DialogResult = DialogResult.OK
             };
             okButton.Location = new Point(form.ClientSize.Width / 2 - okButton.Width / 2, yOffset);
@@ -82,7 +83,7 @@ namespace CleanSweep.Classes
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Failed to open the link: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"无法打开链接：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

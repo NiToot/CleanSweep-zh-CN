@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Interfaces;
 using System;
 using System.IO;
@@ -21,7 +22,7 @@ public class MicrosoftOfficeCacheCleaner : ICleaner
     {
         _preCleanupSize = CalculateDirectorySize(_msoCacheDir);
         int spaceInMB = ConvertBytesToMegabytes(_preCleanupSize);
-        return ("Microsoft Office Cache Files", spaceInMB);
+        return ("Office 缓存", spaceInMB);
     }
 
     public Task Reclaim()
@@ -36,16 +37,16 @@ public class MicrosoftOfficeCacheCleaner : ICleaner
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Microsoft Office Cache Cleaner: Error deleting Microsoft Office cache directory {_msoCacheDir}: {ex.Message}");
+                    Console.WriteLine($"无法删除 Office 缓存目录 {_msoCacheDir}：{ex.Message}");
                 }
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error during Microsoft Office cache cleanup: {ex.Message}");
+            Console.WriteLine($"清理 Office 缓存时出错：{ex.Message}");
         }
 
-        RichTextBoxExtensions.AppendText(_outputWindow, "Microsoft Office Cache cleaned!\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已执行Office 缓存清理。\n");
         return Task.CompletedTask;
     }
 

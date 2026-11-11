@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Interfaces;
 using System;
 using System.IO;
@@ -22,7 +23,7 @@ public class ChromeCacheCleaner : ICleaner
             // Check if the base path exists before proceeding
             if (!Directory.Exists(basePath))
             {
-                RichTextBoxExtensions.AppendText(_outputWindow, $"Chrome user data directory not found at {basePath}.\n");
+                RichTextBoxExtensions.AppendText(_outputWindow, $"未找到 Chrome 用户数据目录：{basePath}。\n");
                 return; // Exit the constructor early if base path doesn't exist
             }
 
@@ -41,7 +42,7 @@ public class ChromeCacheCleaner : ICleaner
         }
         catch (Exception ex)
         {
-            RichTextBoxExtensions.AppendText(_outputWindow, $"Error initializing ChromeCacheCleaner: {ex.Message}\n");
+            RichTextBoxExtensions.AppendText(_outputWindow, $"初始化 Chrome 缓存清理时出错：{ex.Message}\n");
             _chromeCacheDirectories = Array.Empty<string>(); // Initialize as empty array to prevent further errors
         }
     }
@@ -50,19 +51,19 @@ public class ChromeCacheCleaner : ICleaner
     {
         if (_chromeCacheDirectories == null || _chromeCacheDirectories.Length == 0)
         {
-            return ("Chrome Cache Files", 0); // Return 0 space if no directories are found
+            return ("Chrome 缓存", 0); // Return 0 space if no directories are found
         }
 
         _preCleanupSize = _chromeCacheDirectories.Sum(CalculateDirectorySize);
         int spaceInMB = ConvertBytesToMegabytes(_preCleanupSize);
-        return ("Chrome Cache Files", spaceInMB);
+        return ("Chrome 缓存", spaceInMB);
     }
 
     public async Task Reclaim()
     {
         if (_chromeCacheDirectories == null || _chromeCacheDirectories.Length == 0)
         {
-            RichTextBoxExtensions.AppendText(_outputWindow, "No Chrome cache directories to clean.\n");
+            RichTextBoxExtensions.AppendText(_outputWindow, "未找到可清理的 Chrome 缓存目录。\n");
             return; // Exit if no directories are found
         }
 
@@ -75,21 +76,21 @@ public class ChromeCacheCleaner : ICleaner
                     try
                     {
                         Directory.Delete(chromeDirectory, true);
-                        RichTextBoxExtensions.AppendText(_outputWindow, $"Deleted Chrome cache directory: {chromeDirectory}\n");
+                        RichTextBoxExtensions.AppendText(_outputWindow, $"已删除 Chrome 缓存目录：{chromeDirectory}\n");
                     }
                     catch (Exception ex)
                     {
-                        RichTextBoxExtensions.AppendText(_outputWindow, $"Error deleting Chrome cache directory {chromeDirectory}: {ex.Message}\n");
+                        RichTextBoxExtensions.AppendText(_outputWindow, $"无法删除 Chrome 缓存目录 {chromeDirectory}：{ex.Message}\n");
                     }
                 }
                 else
                 {
-                    RichTextBoxExtensions.AppendText(_outputWindow, $"Chrome cache directory not found: {chromeDirectory}\n");
+                    RichTextBoxExtensions.AppendText(_outputWindow, $"未找到 Chrome 缓存目录：{chromeDirectory}\n");
                 }
             }
         });
 
-        RichTextBoxExtensions.AppendText(_outputWindow, "Chrome Cache cleaned!\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已执行Chrome 缓存清理。\n");
     }
 
     private long CalculateDirectorySize(string directoryPath)
@@ -105,7 +106,7 @@ public class ChromeCacheCleaner : ICleaner
         }
         catch (Exception ex)
         {
-            RichTextBoxExtensions.AppendText(_outputWindow, $"Error calculating size for directory {directoryPath}: {ex.Message}\n");
+            RichTextBoxExtensions.AppendText(_outputWindow, $"无法计算目录 {directoryPath} 的大小：{ex.Message}\n");
             return 0;
         }
     }

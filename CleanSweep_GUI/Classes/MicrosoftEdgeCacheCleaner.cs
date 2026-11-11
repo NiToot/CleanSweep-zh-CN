@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
@@ -26,7 +27,7 @@ public class MicrosoftEdgeCacheCleaner : ICleaner
     {
         _preCleanupSize = _edgeCacheDirectories.Sum(dir => CalculateDirectorySize(dir));
         int spaceInMB = ConvertBytesToMegabytes(_preCleanupSize);
-        return ("Microsoft Edge Cache Files", spaceInMB);
+        return ("Edge 缓存", spaceInMB);
     }
 
     public async Task Reclaim()
@@ -59,17 +60,17 @@ public class MicrosoftEdgeCacheCleaner : ICleaner
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine($"Microsoft Edge Cache Claner: Error deleting Edge cache directory {edgeDirectory}: {ex.Message}");
+                            Console.WriteLine($"无法删除 Edge 缓存目录 {edgeDirectory}：{ex.Message}");
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error during Edge cache cleanup: {ex.Message}");
+                Console.WriteLine($"清理 Edge 缓存时出错：{ex.Message}");
             }
         });
-        RichTextBoxExtensions.AppendText(_outputWindow, "Edge Cache cleaned!\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已执行 Edge 缓存清理。\n");
     }
 
     public long ReportReclaimedSpace()

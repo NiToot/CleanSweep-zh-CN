@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Interfaces;
 using Microsoft.Win32;
 using System;
@@ -16,14 +17,14 @@ public class UserFileHistoryCleaner : ICleaner
 
     public (string FileType, int SpaceInMB) GetReclaimableSpace()
     {
-        return ("User File History", 0);
+        return ("文件历史记录", 0);
     }
 
     public async Task Reclaim()
     {
         if (!IsFileHistoryEnabled())
         {
-            Console.WriteLine("User File History is not enabled. Skipping cleanup.");
+            Console.WriteLine("文件历史记录未启用，已跳过。");
             return;
         }
 
@@ -48,9 +49,9 @@ public class UserFileHistoryCleaner : ICleaner
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"User File History Cleaner: Error during User File History cleanup: {ex.Message}");
+            Console.WriteLine($"清理文件历史记录时出错：{ex.Message}");
         }
-        RichTextBoxExtensions.AppendText(_outputWindow, "if enabled, Windows File History has been removed!\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已处理文件历史记录清理请求（如已启用）。\n");
     }
 
     private bool IsFileHistoryEnabled()
@@ -64,7 +65,7 @@ public class UserFileHistoryCleaner : ICleaner
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error checking File History status: {ex.Message}");
+            Console.WriteLine($"无法检查文件历史记录状态：{ex.Message}");
             return false;
         }
     }

@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿
 using System;
 
@@ -112,7 +113,7 @@ namespace CleanSweep
             this.TemporaryFilesCheckbox.Name = "TemporaryFilesCheckbox";
             this.TemporaryFilesCheckbox.Size = new System.Drawing.Size(81, 13);
             this.TemporaryFilesCheckbox.TabIndex = 8;
-            this.TemporaryFilesCheckbox.Text = "Temporary Files";
+            this.TemporaryFilesCheckbox.Text = "临时文件";
             // 
             // SweepItButton
             // 
@@ -121,7 +122,7 @@ namespace CleanSweep
             this.SweepItButton.Name = "SweepItButton";
             this.SweepItButton.Size = new System.Drawing.Size(115, 46);
             this.SweepItButton.TabIndex = 6;
-            this.SweepItButton.Text = "Sweep it!";
+            this.SweepItButton.Text = "开始清理";
             this.SweepItButton.UseVisualStyleBackColor = true;
             this.SweepItButton.Click += new System.EventHandler(this.Button1_Click_1);
             // 
@@ -147,14 +148,14 @@ namespace CleanSweep
             this.fileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.fileToolStripMenuItem.ShowShortcutKeys = false;
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Text = "文件";
             this.fileToolStripMenuItem.Click += new System.EventHandler(this.FileToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Text = "退出";
             this.exitToolStripMenuItem.ToolTipText = "Exit CleanSweep";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -171,14 +172,14 @@ namespace CleanSweep
             this.optionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.optionsToolStripMenuItem.ShowShortcutKeys = false;
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.Text = "选项";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.OptionsToolStripMenuItem_Click);
             // 
             // CheckForUpdatesToolStripMenuItem
             // 
             this.CheckForUpdatesToolStripMenuItem.Name = "CheckForUpdatesToolStripMenuItem";
             this.CheckForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.CheckForUpdatesToolStripMenuItem.Text = "Check For Updates";
+            this.CheckForUpdatesToolStripMenuItem.Text = "检查上游更新";
             this.CheckForUpdatesToolStripMenuItem.ToolTipText = "Check the CleanSweep Github release page for the latest version and new features";
             this.CheckForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdatesToolStripMenuItem_Click);
             // 
@@ -189,7 +190,7 @@ namespace CleanSweep
             this.lightToolStripMenuItem});
             this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
             this.themeToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.themeToolStripMenuItem.Text = "Theme";
+            this.themeToolStripMenuItem.Text = "主题";
             this.themeToolStripMenuItem.Click += new System.EventHandler(this.themeToolStripMenuItem_Click);
             // 
             // darkToolStripMenuItem
@@ -197,7 +198,7 @@ namespace CleanSweep
             this.darkToolStripMenuItem.CheckOnClick = true;
             this.darkToolStripMenuItem.Name = "darkToolStripMenuItem";
             this.darkToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
-            this.darkToolStripMenuItem.Text = "Dark";
+            this.darkToolStripMenuItem.Text = "深色";
             this.darkToolStripMenuItem.Click += new System.EventHandler(this.darkToolStripMenuItem_Click);
             // 
             // lightToolStripMenuItem
@@ -205,14 +206,14 @@ namespace CleanSweep
             this.lightToolStripMenuItem.CheckOnClick = true;
             this.lightToolStripMenuItem.Name = "lightToolStripMenuItem";
             this.lightToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
-            this.lightToolStripMenuItem.Text = "Light";
+            this.lightToolStripMenuItem.Text = "浅色";
             this.lightToolStripMenuItem.Click += new System.EventHandler(this.lightToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Text = "关于";
             this.aboutToolStripMenuItem.ToolTipText = "Show the version number and other relevant information about CleanSweep";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
@@ -220,8 +221,8 @@ namespace CleanSweep
             // 
             this.donateToolStripMenuItem.Name = "donateToolStripMenuItem";
             this.donateToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.donateToolStripMenuItem.Text = "Donate";
-            this.donateToolStripMenuItem.ToolTipText = "Open a browser window to say thanks for CleanSweep";
+            this.donateToolStripMenuItem.Text = "捐赠";
+            this.donateToolStripMenuItem.ToolTipText = "在浏览器中打开原作者的捐赠页面";
             this.donateToolStripMenuItem.Click += new System.EventHandler(this.DonateToolStripMenuItem_Click);
             // 
             // outputWindow
@@ -253,7 +254,7 @@ namespace CleanSweep
             this.TemporarySetupFilesCheckbox.Name = "TemporarySetupFilesCheckbox";
             this.TemporarySetupFilesCheckbox.Size = new System.Drawing.Size(112, 13);
             this.TemporarySetupFilesCheckbox.TabIndex = 13;
-            this.TemporarySetupFilesCheckbox.Text = "Temporary Setup Files";
+            this.TemporarySetupFilesCheckbox.Text = "安装临时文件";
             // 
             // BottomToolStripPanel
             // 
@@ -301,8 +302,8 @@ namespace CleanSweep
             this.CopyLogButton.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.CopyLogButton.Padding = new System.Windows.Forms.Padding(0, 5, 20, 0);
             this.CopyLogButton.Size = new System.Drawing.Size(40, 25);
-            this.CopyLogButton.Text = "toolStripButton1";
-            this.CopyLogButton.ToolTipText = "Copy selected/all text";
+            this.CopyLogButton.Text = "复制日志";
+            this.CopyLogButton.ToolTipText = "复制选中的文字，未选中时复制全部";
             this.CopyLogButton.Click += new System.EventHandler(this.ToolStripButton1_Click_1);
             // 
             // ClearLogButton
@@ -314,8 +315,8 @@ namespace CleanSweep
             this.ClearLogButton.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.ClearLogButton.Padding = new System.Windows.Forms.Padding(20, 5, 0, 0);
             this.ClearLogButton.Size = new System.Drawing.Size(40, 25);
-            this.ClearLogButton.Text = "toolStripButton2";
-            this.ClearLogButton.ToolTipText = "Clear the entire log window";
+            this.ClearLogButton.Text = "清空日志";
+            this.ClearLogButton.ToolTipText = "清空日志窗口";
             this.ClearLogButton.Click += new System.EventHandler(this.ToolStripButton2_Click_2);
             // 
             // toolStrip1
@@ -342,7 +343,7 @@ namespace CleanSweep
             this.TemporaryInternetFilesCheckbox.Name = "TemporaryInternetFilesCheckbox";
             this.TemporaryInternetFilesCheckbox.Size = new System.Drawing.Size(120, 13);
             this.TemporaryInternetFilesCheckbox.TabIndex = 16;
-            this.TemporaryInternetFilesCheckbox.Text = "Temporary Internet Files";
+            this.TemporaryInternetFilesCheckbox.Text = "Internet 临时文件";
             // 
             // checkBox3
             // 
@@ -362,7 +363,7 @@ namespace CleanSweep
             this.EventViewerLogsCheckbox.Name = "EventViewerLogsCheckbox";
             this.EventViewerLogsCheckbox.Size = new System.Drawing.Size(96, 13);
             this.EventViewerLogsCheckbox.TabIndex = 18;
-            this.EventViewerLogsCheckbox.Text = "Event Viewer Logs";
+            this.EventViewerLogsCheckbox.Text = "事件查看器日志";
             // 
             // checkBox4
             // 
@@ -382,7 +383,7 @@ namespace CleanSweep
             this.RecycleBinCheckbox.Name = "RecycleBinCheckbox";
             this.RecycleBinCheckbox.Size = new System.Drawing.Size(64, 13);
             this.RecycleBinCheckbox.TabIndex = 20;
-            this.RecycleBinCheckbox.Text = "Recycle Bin";
+            this.RecycleBinCheckbox.Text = "回收站";
             // 
             // checkBox5
             // 
@@ -402,7 +403,7 @@ namespace CleanSweep
             this.WindowsErrorReportsCheckbox.Name = "WindowsErrorReportsCheckbox";
             this.WindowsErrorReportsCheckbox.Size = new System.Drawing.Size(116, 13);
             this.WindowsErrorReportsCheckbox.TabIndex = 22;
-            this.WindowsErrorReportsCheckbox.Text = "Windows Error Reports";
+            this.WindowsErrorReportsCheckbox.Text = "Windows 错误报告";
             // 
             // checkBox6
             // 
@@ -422,7 +423,7 @@ namespace CleanSweep
             this.WindowsDeliveryOptimizationCheckbox.Name = "WindowsDeliveryOptimizationCheckbox";
             this.WindowsDeliveryOptimizationCheckbox.Size = new System.Drawing.Size(152, 13);
             this.WindowsDeliveryOptimizationCheckbox.TabIndex = 24;
-            this.WindowsDeliveryOptimizationCheckbox.Text = "Windows Delivery Optimization";
+            this.WindowsDeliveryOptimizationCheckbox.Text = "传递优化文件";
             // 
             // checkBox7
             // 
@@ -442,7 +443,7 @@ namespace CleanSweep
             this.ThumbnailCacheCheckmark.Name = "ThumbnailCacheCheckmark";
             this.ThumbnailCacheCheckmark.Size = new System.Drawing.Size(90, 13);
             this.ThumbnailCacheCheckmark.TabIndex = 26;
-            this.ThumbnailCacheCheckmark.Text = "Thumbnail Cache";
+            this.ThumbnailCacheCheckmark.Text = "缩略图缓存";
             // 
             // checkBox8
             // 
@@ -462,7 +463,7 @@ namespace CleanSweep
             this.UserFileHistoryCheckbox.Name = "UserFileHistoryCheckbox";
             this.UserFileHistoryCheckbox.Size = new System.Drawing.Size(83, 13);
             this.UserFileHistoryCheckbox.TabIndex = 28;
-            this.UserFileHistoryCheckbox.Text = "User File History";
+            this.UserFileHistoryCheckbox.Text = "文件历史记录";
             // 
             // checkBox9
             // 
@@ -482,7 +483,7 @@ namespace CleanSweep
             this.WindowsOldFolderCheckbox.Name = "WindowsOldFolderCheckbox";
             this.WindowsOldFolderCheckbox.Size = new System.Drawing.Size(108, 13);
             this.WindowsOldFolderCheckbox.TabIndex = 30;
-            this.WindowsOldFolderCheckbox.Text = "Windows OLD Folder";
+            this.WindowsOldFolderCheckbox.Text = "Windows.old 文件夹";
             // 
             // checkBox10
             // 
@@ -502,7 +503,7 @@ namespace CleanSweep
             this.WindowsDefenderLogsCheckbox.Name = "WindowsDefenderLogsCheckbox";
             this.WindowsDefenderLogsCheckbox.Size = new System.Drawing.Size(124, 13);
             this.WindowsDefenderLogsCheckbox.TabIndex = 32;
-            this.WindowsDefenderLogsCheckbox.Text = "Windows Defender Logs";
+            this.WindowsDefenderLogsCheckbox.Text = "Defender 日志";
             // 
             // checkBox11
             // 
@@ -522,7 +523,7 @@ namespace CleanSweep
             this.MicrosoftOfficeCacheCheckbox.Name = "MicrosoftOfficeCacheCheckbox";
             this.MicrosoftOfficeCacheCheckbox.Size = new System.Drawing.Size(115, 13);
             this.MicrosoftOfficeCacheCheckbox.TabIndex = 34;
-            this.MicrosoftOfficeCacheCheckbox.Text = "Microsoft Office Cache";
+            this.MicrosoftOfficeCacheCheckbox.Text = "Office 缓存";
             // 
             // checkBox12
             // 
@@ -542,7 +543,7 @@ namespace CleanSweep
             this.MicrosoftEdgeCacheCheckbox.Name = "MicrosoftEdgeCacheCheckbox";
             this.MicrosoftEdgeCacheCheckbox.Size = new System.Drawing.Size(112, 13);
             this.MicrosoftEdgeCacheCheckbox.TabIndex = 36;
-            this.MicrosoftEdgeCacheCheckbox.Text = "Microsoft Edge Cache";
+            this.MicrosoftEdgeCacheCheckbox.Text = "Edge 缓存";
             // 
             // checkBox13
             // 
@@ -562,7 +563,7 @@ namespace CleanSweep
             this.ChomeCacheCheckmark.Name = "ChomeCacheCheckmark";
             this.ChomeCacheCheckmark.Size = new System.Drawing.Size(77, 13);
             this.ChomeCacheCheckmark.TabIndex = 38;
-            this.ChomeCacheCheckmark.Text = "Chrome Cache";
+            this.ChomeCacheCheckmark.Text = "Chrome 缓存";
             // 
             // checkBox14
             // 
@@ -582,7 +583,7 @@ namespace CleanSweep
             this.WindowsInstallerCacheCheckbox.Name = "WindowsInstallerCacheCheckbox";
             this.WindowsInstallerCacheCheckbox.Size = new System.Drawing.Size(124, 13);
             this.WindowsInstallerCacheCheckbox.TabIndex = 40;
-            this.WindowsInstallerCacheCheckbox.Text = "Windows Installer Cache";
+            this.WindowsInstallerCacheCheckbox.Text = "Windows Installer 缓存";
             // 
             // checkBox15
             // 
@@ -616,7 +617,7 @@ namespace CleanSweep
             this.WindowsUpdateLogsCheckbox.Name = "WindowsUpdateLogsCheckbox";
             this.WindowsUpdateLogsCheckbox.Size = new System.Drawing.Size(115, 13);
             this.WindowsUpdateLogsCheckbox.TabIndex = 46;
-            this.WindowsUpdateLogsCheckbox.Text = "Windows Update Logs";
+            this.WindowsUpdateLogsCheckbox.Text = "Windows 更新日志";
             // 
             // checkBox18
             // 
@@ -641,7 +642,7 @@ namespace CleanSweep
             this.SelectAllOptionsButton.Name = "SelectAllOptionsButton";
             this.SelectAllOptionsButton.Size = new System.Drawing.Size(75, 23);
             this.SelectAllOptionsButton.TabIndex = 49;
-            this.SelectAllOptionsButton.Text = "Select All";
+            this.SelectAllOptionsButton.Text = "全选";
             this.SelectAllOptionsButton.UseVisualStyleBackColor = true;
             this.SelectAllOptionsButton.Click += new System.EventHandler(this.Button2_Click);
             // 
@@ -651,7 +652,7 @@ namespace CleanSweep
             this.DeselectAllOptionsButton.Name = "DeselectAllOptionsButton";
             this.DeselectAllOptionsButton.Size = new System.Drawing.Size(75, 23);
             this.DeselectAllOptionsButton.TabIndex = 50;
-            this.DeselectAllOptionsButton.Text = "Deselect All";
+            this.DeselectAllOptionsButton.Text = "取消全选";
             this.DeselectAllOptionsButton.UseVisualStyleBackColor = true;
             this.DeselectAllOptionsButton.Click += new System.EventHandler(this.Button3_Click);
             // 
@@ -712,7 +713,7 @@ namespace CleanSweep
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "CleanSweep";
-            this.Text = "CleanSweep";
+            this.Text = "CleanSweep 简体中文版";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

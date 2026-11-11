@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Interfaces;
 using System;
 using System.IO;
@@ -22,7 +23,7 @@ public class WindowsErrorReportsCleaner : ICleaner
         _preCleanupSize = CalculateDirectorySize(_windowsErrorReportsDirectory);
 
         int totalSizeMBInt = ConvertBytesToMegabytes(_preCleanupSize);
-        return ("Windows Error Reports", totalSizeMBInt);
+        return ("Windows 错误报告", totalSizeMBInt);
     }
 
     public Task Reclaim()
@@ -43,10 +44,10 @@ public class WindowsErrorReportsCleaner : ICleaner
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Windows Error Reports Cleaner: {ex.Message}");
+            Console.WriteLine($"清理 Windows 错误报告时出错：{ex.Message}");
         }
 
-        RichTextBoxExtensions.AppendText(_outputWindow, "Windows Error Reports Cleaned!\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已执行 Windows 错误报告清理。\n");
         return Task.CompletedTask;
     }
 

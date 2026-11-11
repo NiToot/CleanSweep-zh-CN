@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Interfaces;
 using System;
 using System.Diagnostics;
@@ -15,7 +16,7 @@ public class ThumbnailCacheCleaner : ICleaner
 
     public (string FileType, int SpaceInMB) GetReclaimableSpace()
     {
-        return ("Thumbnail Cache", 0);
+        return ("缩略图缓存", 0);
     }
 
     public async Task Reclaim()
@@ -40,9 +41,9 @@ public class ThumbnailCacheCleaner : ICleaner
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Thumbnail Cache Cleaner: Error during thumbnail cache cleanup: {ex.Message}");
+                Console.WriteLine($"清理缩略图缓存时出错：{ex.Message}");
             }
         });
-        RichTextBoxExtensions.AppendText(_outputWindow, "Windows Thumbnail Cache Cleaned...\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已执行缩略图缓存清理。\n");
     }
 }

@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -38,18 +39,18 @@ public class RecycleBinCleaner : ICleaner
         {
             _preCleanupSize = CalculateRecycleBinSize();
             int spaceInMB = ConvertBytesToMegabytes(_preCleanupSize);
-            return ("Recycle Bin", spaceInMB);
+            return ("回收站", spaceInMB);
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
-            return ("Recycle Bin", 0);
+            return ("回收站", 0);
         }
     }
 
     public async Task Reclaim()
     {
-        SafeAppendText("Cleaning Recycle Bin...\n");
+        SafeAppendText("正在清空回收站……\n");
 
         try
         {
@@ -58,11 +59,11 @@ public class RecycleBinCleaner : ICleaner
                 uint result = SHEmptyRecycleBin(IntPtr.Zero, null, SHERB_NOCONFIRMATION | SHERB_NOPROGRESSUI | SHERB_NOSOUND);
                 if (result == 0)
                 {
-                    SafeAppendText("Recycle Bin cleaned successfully.\n");
+                    SafeAppendText("已清空回收站。\n");
                 }
                 else
                 {
-                    SafeAppendText($"Recycle Bin is already empty!\n");
+                    SafeAppendText($"回收站已是空的。\n");
                 }
             });
         }

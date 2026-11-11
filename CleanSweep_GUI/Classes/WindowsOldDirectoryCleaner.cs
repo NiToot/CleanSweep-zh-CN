@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Interfaces;
 using System;
 using System.Diagnostics;
@@ -21,7 +22,7 @@ public class WindowsOldDirectoryCleaner : ICleaner
     {
         _preCleanupSize = CalculateDirectorySize(_windowsOldDirectoryPath);
         int spaceInMB = ConvertBytesToMegabytes(_preCleanupSize);
-        return ("Windows Old Directory", spaceInMB);
+        return ("Windows.old 文件夹", spaceInMB);
     }
 
     public async Task Reclaim()
@@ -49,15 +50,15 @@ public class WindowsOldDirectoryCleaner : ICleaner
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Windows OLD Directory Cleaner: Error deleting Windows.old directory: {ex.Message}");
+                    Console.WriteLine($"无法删除 Windows.old 文件夹：{ex.Message}");
                 }
             });
         }
         else
         {
-            Console.WriteLine("WindowsOldDirectoryCleaner(): The Windows .old directory doesn't exist.");
+            Console.WriteLine("未找到 Windows.old 文件夹。");
         }
-        RichTextBoxExtensions.AppendText(_outputWindow, "Windows OLD Directory cleaned!\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已处理 Windows.old 文件夹清理请求。\n");
     }
 
     public long ReportReclaimedSpace()

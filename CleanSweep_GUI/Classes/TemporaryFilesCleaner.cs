@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Interfaces;
 using System;
 using System.IO;
@@ -21,7 +22,7 @@ public class TemporaryFilesCleaner : ICleaner
     {
         _preCleanupSize = CalculateDirectorySize(_tempDirectory);
         int totalSizeMBInt = ConvertBytesToMegabytes(_preCleanupSize);
-        return ("Temporary Files", totalSizeMBInt);
+        return ("临时文件", totalSizeMBInt);
     }
 
     public Task Reclaim()
@@ -42,10 +43,10 @@ public class TemporaryFilesCleaner : ICleaner
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Temporary Files Cleaner: Error during Temporary Files cleanup: {ex.Message}");
+            Console.WriteLine($"清理临时文件时出错：{ex.Message}");
         }
         
-        RichTextBoxExtensions.AppendText(_outputWindow, "Temporary Files cleaned!\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已执行临时文件清理。\n");
         return Task.CompletedTask;
     }
 

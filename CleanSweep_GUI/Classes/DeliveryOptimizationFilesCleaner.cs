@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Interfaces;
 using System;
 using System.IO;
@@ -23,7 +24,7 @@ public class DeliveryOptimizationFilesCleaner : ICleaner
 
         int sizeInMB = ConvertBytesToMegabytes(sizeInBytes);
         _deliveryOptimizationFilesDirSizeInMegaBytes = sizeInMB;
-        return ("Delivery Optimization Files", sizeInMB);
+        return ("传递优化文件", sizeInMB);
     }
 
     public Task Reclaim()
@@ -40,7 +41,7 @@ public class DeliveryOptimizationFilesCleaner : ICleaner
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error deleting file {file.FullName}: {ex.Message}");
+                    Console.WriteLine($"无法删除文件 {file.FullName}：{ex.Message}");
                 }
             }
 
@@ -52,16 +53,16 @@ public class DeliveryOptimizationFilesCleaner : ICleaner
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error deleting directory {dir.FullName}: {ex.Message}");
+                    Console.WriteLine($"无法删除目录 {dir.FullName}：{ex.Message}");
                 }
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Delivery Optimization Files Cleaner: Error during Delivery Optimization files cleanup: {ex.Message}");
+            Console.WriteLine($"清理传递优化文件时出错：{ex.Message}");
         }
 
-        RichTextBoxExtensions.AppendText(_outputWindow, "Delivery Optimization Files cleaned!\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已执行传递优化文件清理。\n");
         return Task.CompletedTask;
     }
 

@@ -1,3 +1,4 @@
+// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
 ﻿using CleanSweep.Interfaces;
 using System;
 using System.Diagnostics;
@@ -48,14 +49,14 @@ public class EventViewerLogsCleaner : ICleaner
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Event Logs Viewer: Error during Event Viewer log cleanup: {ex.Message}");
+                Console.WriteLine($"清理事件查看器日志时出错：{ex.Message}");
             }
         });
-        RichTextBoxExtensions.AppendText(_outputWindow, "Event Viewer Logs cleaned!\n");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已执行事件查看器日志清理。\n");
     }
 
     (string FileType, int SpaceInMB) ICleaner.GetReclaimableSpace()
     {
-        return ("Event Viewer Logs", 0);
+        return ("事件查看器日志", 0);
     }
 }
