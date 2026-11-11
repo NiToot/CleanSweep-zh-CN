@@ -1,5 +1,5 @@
-// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
-﻿using CleanSweep.Interfaces;
+﻿// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
+using CleanSweep.Interfaces;
 using System;
 using System.IO;
 using System.Linq;
@@ -14,7 +14,7 @@ public class WindowsErrorReportsCleaner : ICleaner
 
     public WindowsErrorReportsCleaner(RichTextBox outputWindow)
     {
-        _windowsErrorReportsDirectory = @"C:\ProgramData\Microsoft\Windows\WER";
+        _windowsErrorReportsDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "Microsoft", "Windows", "WER");
         _outputWindow = outputWindow;
     }
 
@@ -28,26 +28,8 @@ public class WindowsErrorReportsCleaner : ICleaner
 
     public Task Reclaim()
     {
-        var di = new DirectoryInfo(_windowsErrorReportsDirectory);
-
-        try
-        {
-            foreach (var file in di.GetFiles())
-            {
-                file.Delete();
-            }
-
-            foreach (var dir in di.GetDirectories())
-            {
-                dir.Delete(true);
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"清理 Windows 错误报告时出错：{ex.Message}");
-        }
-
-        RichTextBoxExtensions.AppendText(_outputWindow, "已执行 Windows 错误报告清理。\n");
+        Helpers.CleanDirectoryContents(_windowsErrorReportsDirectory, _outputWindow);
+        RichTextBoxExtensions.AppendText(_outputWindow, "已处理Windows 错误报告清理请求。\n");
         return Task.CompletedTask;
     }
 

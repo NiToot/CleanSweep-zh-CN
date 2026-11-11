@@ -1,5 +1,5 @@
-// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
-﻿using CleanSweep.Interfaces;
+﻿// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
+using CleanSweep.Interfaces;
 using System;
 using System.IO;
 using System.Linq;
@@ -14,7 +14,7 @@ public class MicrosoftOfficeCacheCleaner : ICleaner
 
     public MicrosoftOfficeCacheCleaner(RichTextBox outputWindow)
     {
-        _msoCacheDir = @"C:\Users\%USERNAME%\AppData\Local\Microsoft\Office\16.0\OfficeFileCache";
+        _msoCacheDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Microsoft", "Office", "16.0", "OfficeFileCache");
         _outputWindow = outputWindow;
     }
 

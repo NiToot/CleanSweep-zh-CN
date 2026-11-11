@@ -1,5 +1,5 @@
-// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
-﻿using CleanSweep.Interfaces;
+﻿// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
+using CleanSweep.Interfaces;
 using System;
 using System.IO;
 using System.Linq;
@@ -14,7 +14,7 @@ public class WindowsInstallerCacheCleaner : ICleaner
 
     public WindowsInstallerCacheCleaner(RichTextBox outputWindow)
     {
-        _windowsDirectory = @"C:\Windows\Installer";
+        _windowsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
         _outputWindow = outputWindow;
     }
 

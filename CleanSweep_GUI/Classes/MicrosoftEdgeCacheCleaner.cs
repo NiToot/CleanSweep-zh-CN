@@ -1,5 +1,5 @@
-// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
-﻿using System;
+﻿// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -16,9 +16,9 @@ public class MicrosoftEdgeCacheCleaner : ICleaner
     public MicrosoftEdgeCacheCleaner(RichTextBox outputWindow)
     {
         _edgeCacheDirectories = new[]
-        { 
-            @"C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Default\Cache", 
-            @"C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\User Data\Profile 1\Cache" 
+        {
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Microsoft", "Edge", "User Data", "Default", "Cache"),
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Microsoft", "Edge", "User Data", "Profile 1", "Cache")
         };
         _outputWindow = outputWindow;
     }

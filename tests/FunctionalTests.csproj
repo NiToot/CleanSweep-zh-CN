@@ -1,0 +1,16 @@
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <AssemblyName>CleanSweep.FunctionalTests</AssemblyName>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" /><Reference Include="System.Core" /><Reference Include="System.Drawing" /><Reference Include="System.Windows.Forms" /><Reference Include="System.Configuration" />
+    <ProjectReference Include="..\CleanSweep_GUI\CleanSweep.csproj"><Name>CleanSweep</Name><Project>{0E5A76CA-ECD6-4B41-802F-186ECA78456D}</Project></ProjectReference>
+    <Compile Include="FunctionalTests.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

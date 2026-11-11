@@ -1,5 +1,5 @@
-// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
-﻿using CleanSweep.Interfaces;
+﻿// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
+using CleanSweep.Interfaces;
 using System;
 using System.Drawing;
 using System.IO;
@@ -31,26 +31,8 @@ public class TemporaryInternetFilesCleaner : ICleaner
 
     public Task Reclaim()
     {
-        var di = new DirectoryInfo(_tempInternetFilesDirectory);
-
-        try
-        {
-            foreach (var file in di.GetFiles())
-            {
-                file.Delete();
-            }
-
-            foreach (var dir in di.GetDirectories())
-            {
-                dir.Delete(true);
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"清理 Internet 临时文件时无法删除文件或目录：{ ex.Message}");
-        }
-
-        RichTextBoxExtensions.AppendText(_outputWindow, "已执行 Internet 临时文件清理。\n");
+        Helpers.CleanDirectoryContents(_tempInternetFilesDirectory, _outputWindow);
+        RichTextBoxExtensions.AppendText(_outputWindow, "已处理Internet 临时文件清理请求。\n");
         return Task.CompletedTask;
     }
 

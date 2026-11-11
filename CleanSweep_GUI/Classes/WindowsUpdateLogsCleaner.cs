@@ -1,5 +1,5 @@
-// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
-﻿using CleanSweep.Interfaces;
+﻿// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
+using CleanSweep.Interfaces;
 using System;
 using System.IO;
 using System.Linq;
@@ -14,7 +14,7 @@ public class WindowsUpdateLogsCleaner : ICleaner
 
     public WindowsUpdateLogsCleaner(RichTextBox outputWindow)
     {
-        _windowsUpdateLogDir = @"C:\Windows\Logs\WindowsUpdate";
+        _windowsUpdateLogDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), "Logs", "WindowsUpdate");
         _outputWindow = outputWindow;
     }
 
@@ -25,34 +25,11 @@ public class WindowsUpdateLogsCleaner : ICleaner
         return ("Windows 更新日志", spaceInMB);
     }
 
-    public async Task Reclaim()
+    public Task Reclaim()
     {
-        if (Directory.Exists(_windowsUpdateLogDir))
-        {
-            await Task.Run(() =>
-            {
-                var di = new DirectoryInfo(_windowsUpdateLogDir);
-                try
-                {
-                    foreach (var file in di.GetFiles())
-                    {
-                        try
-                        {
-                            file.Delete();
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"无法删除文件 {file.FullName}：{ex.Message}");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"无法删除 {di.FullName} 中的文件：{ex.Message}");
-                }
-            });
-        }
-        RichTextBoxExtensions.AppendText(_outputWindow, "已执行Windows 更新日志清理。\n");
+        Helpers.CleanDirectoryContents(_windowsUpdateLogDir, _outputWindow);
+        RichTextBoxExtensions.AppendText(_outputWindow, "已处理Windows 更新日志清理请求。\n");
+        return Task.CompletedTask;
     }
 
     public long ReportReclaimedSpace()

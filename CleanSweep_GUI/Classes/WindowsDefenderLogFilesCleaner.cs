@@ -1,5 +1,5 @@
-// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
-﻿using CleanSweep.Interfaces;
+﻿// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
+using CleanSweep.Interfaces;
 using System;
 using System.IO;
 using System.Linq;
@@ -15,7 +15,7 @@ public class WindowsDefenderLogFilesCleaner : ICleaner
 
     public WindowsDefenderLogFilesCleaner(RichTextBox outputWindow)
     {
-        _programDataDirectory = @"C:\ProgramData\Microsoft\Windows Defender\Scans\History\Results";
+        _programDataDirectory = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
 
         _logFilePaths = new[]
         {
@@ -38,33 +38,12 @@ public class WindowsDefenderLogFilesCleaner : ICleaner
         return ("Defender 日志", spaceInMB);
     }
 
-    public async Task Reclaim()
+    public Task Reclaim()
     {
-        await Task.Run(() =>
-        {
-            try
-            {
-                foreach (var directory in _logFilePaths)
-                {
-                    if (Directory.Exists(directory))
-                    {
-                        try
-                        {
-                            Directory.Delete(directory, true);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"无法删除目录 {directory}：{ex.Message}");
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"清理 Defender 日志时出错：{ex.Message}");
-            }
-        });
-        RichTextBoxExtensions.AppendText(_outputWindow, "已执行 Defender 日志清理。\n");
+        foreach (var directory in _logFilePaths)
+            Helpers.CleanDirectoryContents(directory, _outputWindow, "*.log");
+        RichTextBoxExtensions.AppendText(_outputWindow, "已处理 Defender 日志清理请求。\n");
+        return Task.CompletedTask;
     }
 
     public long ReportReclaimedSpace()

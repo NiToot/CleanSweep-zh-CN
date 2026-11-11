@@ -1,5 +1,5 @@
-// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
-﻿using CleanSweep.Interfaces;
+﻿// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
+using CleanSweep.Interfaces;
 using System;
 using System.IO;
 using System.Linq;
@@ -14,7 +14,7 @@ public class DeliveryOptimizationFilesCleaner : ICleaner
 
     public DeliveryOptimizationFilesCleaner(RichTextBox outputWindow)
     {
-        _deliveryOptimizationFilesDirectory = @"C:\Windows\SoftwareDistribution\Download";
+        _deliveryOptimizationFilesDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), "SoftwareDistribution", "Download");
         _outputWindow = outputWindow;
     }
 
@@ -29,40 +29,8 @@ public class DeliveryOptimizationFilesCleaner : ICleaner
 
     public Task Reclaim()
     {
-        var di = new DirectoryInfo(_deliveryOptimizationFilesDirectory);
-
-        try
-        {
-            foreach (var file in di.GetFiles())
-            {
-                try
-                {
-                    file.Delete();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"无法删除文件 {file.FullName}：{ex.Message}");
-                }
-            }
-
-            foreach (var dir in di.GetDirectories())
-            {
-                try
-                {
-                    dir.Delete(true);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"无法删除目录 {dir.FullName}：{ex.Message}");
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"清理传递优化文件时出错：{ex.Message}");
-        }
-
-        RichTextBoxExtensions.AppendText(_outputWindow, "已执行传递优化文件清理。\n");
+        Helpers.CleanDirectoryContents(_deliveryOptimizationFilesDirectory, _outputWindow);
+        RichTextBoxExtensions.AppendText(_outputWindow, "已处理传递优化文件清理请求。\n");
         return Task.CompletedTask;
     }
 

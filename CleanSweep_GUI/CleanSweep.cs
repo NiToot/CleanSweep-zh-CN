@@ -1,5 +1,5 @@
-// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
-﻿using CleanSweep.Properties;
+﻿// Simplified Chinese localization by NiToot, 2026-11-11. See NOTICE.md.
+using CleanSweep.Properties;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -61,6 +61,7 @@ namespace CleanSweep
 
         private void SaveSettingsEventHandler(object sender, FormClosingEventArgs e)
         {
+            SaveUserSelectedChecks();
             Settings.Default.FormHeight = Height;
             Settings.Default.FormWidth = Width;
             Settings.Default.FormLocation = Location;
@@ -132,11 +133,6 @@ namespace CleanSweep
 
         private async void Button1_Click_1(object sender, EventArgs e)
         {
-            LockCleaning(true);
-
-            double totalSpaceBefore = 0;
-            double totalSpaceAfter = 0;
-
             var cleaners = new List<ICleaner>
             {
                 _checkedArrayBool[0] ? new TemporaryFilesCleaner(outputWindow) : null,
@@ -157,36 +153,36 @@ namespace CleanSweep
                 _checkedArrayBool[15] ? new WindowsUpdateLogsCleaner(outputWindow) : null,
             };
 
-            foreach (var cleaner in cleaners)
+            await RunCleaners(cleaners.Where(cleaner => cleaner != null));
+        }
+
+        private async Task RunCleaners(IEnumerable<ICleaner> cleaners)
+        {
+            LockCleaning(true);
+            double spaceReclaimed = 0;
+            try
             {
-                if (cleaner != null)
+                foreach (var cleaner in cleaners)
                 {
-                    var (fileType, spaceInMB) = cleaner.GetReclaimableSpace();
-                    totalSpaceBefore += spaceInMB;
+                    try
+                    {
+                        var before = cleaner.GetReclaimableSpace();
+                        await cleaner.Reclaim();
+                        var after = cleaner.GetReclaimableSpace();
+                        spaceReclaimed += Math.Max(0, before.SpaceInMB - after.SpaceInMB);
+                    }
+                    catch (Exception ex)
+                    {
+                        outputWindow.AppendText($"清理失败：{ex.Message}\n");
+                    }
                 }
+                outputWindow.AppendText($"\n已释放空间：{spaceReclaimed} MB\n");
             }
-
-            foreach (var cleaner in cleaners)
+            finally
             {
-                if (cleaner != null)
-                {
-                    await cleaner.Reclaim();
-                }
+                LockCleaning(false);
+                UpdateSweepItButtonState();
             }
-
-            foreach (var cleaner in cleaners)
-            {
-                if (cleaner != null)
-                {
-                    var (fileType, spaceInMB) = cleaner.GetReclaimableSpace();
-                    totalSpaceAfter += spaceInMB;
-                }
-            }
-
-            double spaceReclaimed = totalSpaceBefore - totalSpaceAfter;
-            outputWindow.Text += $"\n已释放空间：{spaceReclaimed} MB\n";
-
-            LockCleaning(false);
         }
 
         public static void ScrollToOutputBottom()
@@ -238,9 +234,7 @@ namespace CleanSweep
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveUserSelectedChecks();
-            Dispose();
-            Application.Exit();
+            Close();
         }
 
         private void DonateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -273,8 +267,8 @@ namespace CleanSweep
             if (outputWindow.SelectionLength == 0)
             {
                 outputWindow.SelectAll();
-                outputWindow.Copy();
             }
+            outputWindow.Copy();
         }
 
         private void ToolStripButton2_Click_2(object sender, EventArgs e)

@@ -4,3 +4,5 @@ CleanSweep_CLI/.vs/
 CleanSweep_GUI/bin/
 CleanSweep_GUI/obj/
 CleanSweep_GUI/.vs/
+tests/bin/
+tests/obj/

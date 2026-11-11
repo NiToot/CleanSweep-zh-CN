@@ -1,0 +1,81 @@
+PASS Office resolves current user
+PASS Edge resolves current user
+PASS Installer Windows root
+PASS Defender ProgramData root
+PASS TemporaryFilesCleaner estimate
+PASS TemporaryFilesCleaner deletes fixture
+PASS TemporaryFilesCleaner remaining space
+PASS TemporaryFilesCleaner retry
+PASS TemporaryFilesCleaner preserves outside file
+PASS TemporarySetupFilesCleaner estimate
+PASS TemporarySetupFilesCleaner deletes fixture
+PASS TemporarySetupFilesCleaner remaining space
+PASS TemporarySetupFilesCleaner retry
+PASS TemporarySetupFilesCleaner preserves outside file
+PASS TemporaryInternetFilesCleaner estimate
+PASS TemporaryInternetFilesCleaner deletes fixture
+PASS TemporaryInternetFilesCleaner remaining space
+PASS TemporaryInternetFilesCleaner retry
+PASS TemporaryInternetFilesCleaner preserves outside file
+PASS DeliveryOptimizationFilesCleaner estimate
+PASS DeliveryOptimizationFilesCleaner deletes fixture
+PASS DeliveryOptimizationFilesCleaner remaining space
+PASS DeliveryOptimizationFilesCleaner retry
+PASS DeliveryOptimizationFilesCleaner preserves outside file
+PASS WindowsErrorReportsCleaner estimate
+PASS WindowsErrorReportsCleaner deletes fixture
+PASS WindowsErrorReportsCleaner remaining space
+PASS WindowsErrorReportsCleaner retry
+PASS WindowsErrorReportsCleaner preserves outside file
+PASS MicrosoftOfficeCacheCleaner estimate
+PASS MicrosoftOfficeCacheCleaner deletes fixture
+PASS MicrosoftOfficeCacheCleaner remaining space
+PASS MicrosoftOfficeCacheCleaner retry
+PASS MicrosoftOfficeCacheCleaner preserves outside file
+PASS ChromeCacheCleaner estimate
+PASS ChromeCacheCleaner deletes fixture
+PASS ChromeCacheCleaner remaining space
+PASS ChromeCacheCleaner retry
+PASS ChromeCacheCleaner preserves outside file
+PASS WindowsInstallerCacheCleaner estimate
+PASS WindowsInstallerCacheCleaner deletes fixture
+PASS WindowsInstallerCacheCleaner remaining space
+PASS WindowsInstallerCacheCleaner retry
+PASS WindowsInstallerCacheCleaner preserves outside file
+PASS WindowsDefenderLogFilesCleaner estimate
+PASS WindowsDefenderLogFilesCleaner deletes fixture
+PASS WindowsDefenderLogFilesCleaner remaining space
+PASS WindowsDefenderLogFilesCleaner retry
+PASS WindowsDefenderLogFilesCleaner preserves outside file
+PASS WindowsUpdateLogsCleaner estimate
+PASS WindowsUpdateLogsCleaner deletes fixture
+PASS WindowsUpdateLogsCleaner remaining space
+PASS WindowsUpdateLogsCleaner retry
+PASS WindowsUpdateLogsCleaner preserves outside file
+PASS TemporaryFilesCleaner skips locked file and continues
+PASS TemporaryFilesCleaner reports failure in GUI
+PASS TemporarySetupFilesCleaner skips locked file and continues
+PASS TemporarySetupFilesCleaner reports failure in GUI
+PASS TemporaryInternetFilesCleaner skips locked file and continues
+PASS TemporaryInternetFilesCleaner reports failure in GUI
+PASS DeliveryOptimizationFilesCleaner skips locked file and continues
+PASS DeliveryOptimizationFilesCleaner reports failure in GUI
+PASS WindowsErrorReportsCleaner skips locked file and continues
+PASS WindowsErrorReportsCleaner reports failure in GUI
+PASS Defender preserves non-log data
+PASS No selection disables cleaning
+PASS Select all selects 16
+PASS Deselect all clears 16
+PASS Copies selected log
+PASS Copies entire log
+PASS Clears log
+PASS Dark theme
+PASS Light theme
+PASS Window close saves selections
+PASS Batch continues after failure
+PASS Batch reports failure
+PASS Batch restores controls
+PASS Batch reports actual reclaimed space
+PASS Exit menu closes form
+PASS Exit menu saves selections
+RESULT passed=80 failed=0
